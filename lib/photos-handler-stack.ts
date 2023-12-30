@@ -1,5 +1,4 @@
 import * as cdk from 'aws-cdk-lib';
-import { Fn } from 'aws-cdk-lib';
 import { Code, Function as LambdaFunction, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
@@ -25,7 +24,7 @@ export class PhotosHandlerStack extends cdk.Stack {
         };
       `),
       environment: {
-        TARGET_BUCKET: required<string>(props.targetBucketArn),
+        TARGET_BUCKET: required(props.targetBucketArn),
       },
     });
   }
